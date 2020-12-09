@@ -20,25 +20,37 @@ N2 = int(input("Enter another number: "))
 
 xvals = factors.order()
 yvals = [np.mod(a ** x, N) for x in xvals]
-
 # getting possible period values
-r = yvals[1:].index(1) + 1
-print("possible period value: ", r)
 
-check = a**(r/2) + 1
-print(check)
-if check != 0:
-    print("The prime factors of", N, "are", factors.gcd())
+try:
+    r = yvals[1:].index(1) + 1
 
-if N2 > 15:
-    factors2 = Shors(N2, a)
-    xvals2 = factors2.order()
-    yvals2 = [np.mod(a ** x, N2) for x in xvals2]
-
-    r = yvals2[1:].index(1) + 1
     print("possible period value: ", r)
 
     check = a ** (r / 2) + 1
     print(check)
     if check != 0:
-        print("The prime factors of", N2, "are", factors2.gcd())
+        if factors.isprime(N):
+            print(N, "is a prime factor")
+        else:
+            print("The prime factors of", N, "are", factors.gcd())
+except:
+    print("No values for a^r mod N = 1")
+if N2 > 15:
+    factors2 = Shors(N2, a)
+    xvals2 = factors2.order()
+    yvals2 = [np.mod(a ** x, N2) for x in xvals2]
+    try:
+        r = yvals2[1:].index(1) + 1
+
+        print("possible period value: ", r)
+
+        check = a ** (r / 2) + 1
+        print(check)
+        if check != 0:
+            if factors2.isprime(N2):
+                print(N2, "is a prime factor")
+            else:
+                print("The prime factors of", N2, "are", factors2.gcd())
+    except:
+        print("No values for a^r mod N = 1")
