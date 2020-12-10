@@ -7,7 +7,7 @@ IBMQ.enable_account(
     '8cd11e82260ef3b66215a7699d2ae154e1c7cd2b94cea401741b2abe7e7f39fc2258b45c4a31a5bd6c47de7f0e10c8f5c3abd0bdd23b0abb81cea1d56d0c6032')
 provider = IBMQ.get_provider(hub='ibm-q')
 
-backend = provider.get_backend('ibmq_qasm_simulator')  # Specifies the quantum device
+backend = provider.get_backend('ibmq_valencia')  # Specifies the quantum device
 
 print('\n Shors Algorithm')
 print('--------------------')
